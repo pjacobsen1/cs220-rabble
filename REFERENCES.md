@@ -1,5 +1,14 @@
+Homework #1
+
 AI was utilized for explanations of concepts.
 
 Sources:
 https://www.djangoproject.com/start/ 
 https://www.w3schools.com/django/ 
+
+
+Homework #2
+
+I completed my first four models manually, and utilized AI for the rest.
+I changed the arguments for most of the models.
+AI was utilized for explanations of concepts for the extra task. 
