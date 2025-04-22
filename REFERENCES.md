@@ -12,3 +12,8 @@ Homework #2
 I completed my first four models manually, and utilized AI for the rest.
 I changed the arguments for most of the models.
 AI was utilized for explanations of concepts for the extra task. 
+
+
+Homework #3
+
+AI was utilized for explanations of concepts.
