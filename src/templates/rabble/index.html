@@ -1,13 +1,19 @@
 {% extends "rabble/base.html" %}
-
+    
 {% block content %}
-
-  {% if user.is_authenticated %}
-    <p>Welcome {{ user.username }}!</p>
-
+  {% if subrabbles %}
+    <ul class="list-group">
+      {% for sr in subrabbles %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong>!{{ sr.subrabble_name }}</strong><br>
+            <small class="text-muted">{{ sr.description }}</small>
+          </div>
+          <a href="{% url 'subrabble-detail' sr.subrabble_name %}" class="btn btn-sm btn-outline-primary">View</a>
+        </li>
+      {% endfor %}
+    </ul>
   {% else %}
-    <p>Welcome to Rabble!</p>
-
+    <p>No subRabbles yet. Create one to get started!</p>
   {% endif %}
-
 {% endblock content %}

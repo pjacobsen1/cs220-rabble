@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
  
 class User(AbstractUser):
   profile_pic = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
@@ -28,8 +27,8 @@ class Subrabble(models.Model):
   subrabble_name = models.TextField(unique=True)
   description = models.TextField()
   is_public = models.BooleanField()
-  num_posts = models.PositiveIntegerField()
-  num_comments = models.PositiveIntegerField()
+  num_posts = models.PositiveIntegerField(default=0)
+  num_comments = models.PositiveIntegerField(default=0)
   allow_anon = models.BooleanField()
  
 class SubrabbleMember(models.Model):
@@ -41,21 +40,21 @@ class Post(models.Model):
   subrabble = models.ForeignKey(Subrabble, on_delete=models.CASCADE)
   title = models.TextField()
   body = models.TextField()
-  num_likes = models.PositiveIntegerField()
-  num_comments = models.PositiveIntegerField()
+  num_likes = models.PositiveIntegerField(default=0)
+  num_comments = models.PositiveIntegerField(default=0)
  
 class Comment(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   post = models.ForeignKey(Post, on_delete=models.CASCADE)
   body = models.TextField()
-  num_likes = models.PositiveIntegerField()
-  num_replies = models.PositiveIntegerField()
+  num_likes = models.PositiveIntegerField(default=0)
+  num_replies = models.PositiveIntegerField(default=0)
  
 class Reply(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
   body = models.TextField()
-  num_likes = models.PositiveIntegerField()
+  num_likes = models.PositiveIntegerField(default=0)
 
 class Conversation(models.Model):
   title = models.TextField()
