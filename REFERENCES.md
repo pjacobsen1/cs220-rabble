@@ -17,3 +17,11 @@ AI was utilized for explanations of concepts for the extra task.
 Homework #3
 
 AI was utilized for explanations of concepts.
+
+
+Homework #4
+
+AI was utilized for explanations of concepts as well as HTML.
+
+https://www.django-rest-framework.org/api-guide/relations/ 
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
