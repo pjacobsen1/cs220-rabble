@@ -36,13 +36,13 @@ class SubrabbleMember(models.Model):
   subrabble = models.ForeignKey(Subrabble, on_delete=models.CASCADE)
 
 class Post(models.Model):
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='who_posted')
   subrabble = models.ForeignKey(Subrabble, on_delete=models.CASCADE)
   title = models.TextField()
   body = models.TextField()
   num_likes = models.PositiveIntegerField(default=0)
   num_comments = models.PositiveIntegerField(default=0)
-  likes = models.ManyToManyField(User, blank=True)
+  likes = models.ManyToManyField(User, related_name='who_liked', blank=True)
  
 class Comment(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
