@@ -40,6 +40,7 @@
     {% endblock javascript %}
   </head>
   <body>
+    {% csrf_token %}
     <nav class="navbar navbar-expand-lg shadow-sm px-4">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">Rabble</a>
@@ -66,5 +67,6 @@
             {% endblock %}
         </div>
     </div>
+    {% block extra_js %}{% endblock %}
   </body>
 </html>

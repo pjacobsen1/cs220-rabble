@@ -42,6 +42,7 @@ class Post(models.Model):
   body = models.TextField()
   num_likes = models.PositiveIntegerField(default=0)
   num_comments = models.PositiveIntegerField(default=0)
+  likes = models.ManyToManyField(User, blank=True)
  
 class Comment(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
