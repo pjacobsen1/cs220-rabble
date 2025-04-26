@@ -7,7 +7,7 @@ class SubrabbleSerializer(serializers.ModelSerializer):
         fields = ['community', 'subrabble_name', 'description', 'is_public', 'num_posts', 'num_comments', 'allow_anon']
 
 class PostSerializer(serializers.ModelSerializer):
-    user = serializers.SlugRelatedField(slug_field='user', queryset=User.objects.all())
+    user = serializers.SlugRelatedField(slug_field='username', queryset=User.objects.all())
     subrabble = serializers.SlugRelatedField(slug_field='subrabble_name', queryset=Subrabble.objects.all())
     class Meta:
         model = Post
