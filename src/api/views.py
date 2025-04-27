@@ -20,6 +20,7 @@ def get_subrabble(request, subrabble_name):
 
 @api_view(['GET', 'POST'])
 def subrabble_posts(request, subrabble_name):
+    subrabble_name = subrabble_name.lstrip('!')
     subrabble = Subrabble.objects.get(subrabble_name=subrabble_name)
     if request.method == 'GET':
         posts = Post.objects.filter(subrabble=subrabble)
@@ -27,7 +28,7 @@ def subrabble_posts(request, subrabble_name):
         return Response(serializer.data)
     elif request.method == 'POST':
         data = request.data.copy()
-        data['subrabble'] = subrabble.id
+        data['subrabble'] = subrabble_name
         serializer = PostSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
@@ -36,7 +37,9 @@ def subrabble_posts(request, subrabble_name):
 
 @api_view(['GET', 'PATCH', 'DELETE'])
 def get_post(request, subrabble_name, pk):
-    post = Post.objects.get(pk=pk, subrabble_name=subrabble_name)
+    subrabble = Subrabble.objects.get(subrabble_name=subrabble_name)
+    post = Post.objects.get(pk=pk, subrabble=subrabble)
+
     if request.method == 'GET':
         serializer = PostSerializer(post)
         return Response(serializer.data)
@@ -63,6 +66,9 @@ def change_like(request, subrabble_name, pk):
     else:
         post.likes.add(user)
         liked = True
+
+    post.num_likes = post.likes.count()
+    post.save()
     
     return Response({
         'liked': liked,

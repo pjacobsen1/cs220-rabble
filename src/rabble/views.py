@@ -34,11 +34,17 @@ def post_detail(request, subrabble_name, pk):
     subrabble = Subrabble.objects.get(subrabble_name=subrabble_name)
     post = Post.objects.get(pk=pk, subrabble=subrabble)
     comments = Comment.objects.filter(post=post)
+    if post.num_likes != post.likes.count():
+        post.num_likes = post.likes.count()
+        post.save()
+    
+    is_liked = request.user in post.likes.all()
     
     return render(request, "rabble/post_detail.html", {
         "subrabble": subrabble,
         "post": post,
         "comments": comments,
+        'is_liked': is_liked,
     })
 
 @login_required

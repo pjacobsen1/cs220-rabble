@@ -2,7 +2,7 @@
 
     {
         "user": "alex",
-        "subrabble": "1",
+        "subrabble": "cs-courses",
         "title": "What class should I take?",
         "body": "I am debating if I should take Introduction to Software Development.",
         "num_likes": 7,
