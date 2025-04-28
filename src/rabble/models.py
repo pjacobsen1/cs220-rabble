@@ -23,6 +23,7 @@ class CommunityMember(models.Model):
   is_admin = models.BooleanField(default=False)
 
 class Subrabble(models.Model):
+  identifier = models.TextField(unique=True)
   community = models.ForeignKey(Community, on_delete=models.CASCADE)
   subrabble_name = models.TextField(unique=True)
   description = models.TextField()

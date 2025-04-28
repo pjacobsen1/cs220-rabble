@@ -4,7 +4,7 @@ from rabble.models import *
 class SubrabbleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subrabble
-        fields = ['community', 'subrabble_name', 'description', 'is_public', 'num_posts', 'num_comments', 'allow_anon']
+        fields = ['identifier', 'community', 'subrabble_name', 'description', 'is_public', 'num_posts', 'num_comments', 'allow_anon']
 
 class PostSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(slug_field='username', queryset=User.objects.all())
