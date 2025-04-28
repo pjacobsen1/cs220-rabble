@@ -377,6 +377,45 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2025-04-28T19:28:33.928Z",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "1",
+        "object_repr": "Subrabble object (1)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Identifier\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2025-04-28T19:28:39.905Z",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "2",
+        "object_repr": "Subrabble object (2)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Identifier\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2025-04-28T19:28:46.162Z",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "3",
+        "object_repr": "Subrabble object (3)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Identifier\"]}}]"
+    }
+},
+{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -1194,6 +1233,30 @@
 },
 {
     "model": "sessions.session",
+    "pk": "gba41o8vr9ekhn91zeqrkhzdvbivuokk",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQRe_C2hCwU6Au3fcMZGYYbNVAUtqV8e7apAvd_vfef6mI2zrFrckS56QuqlOn342QH1J2kO5YblVzLesyk94VfdCmx5rkeT3cv4MJ2_StPXiCPLBjeybDnHuXBe1gHQ9gnAtd8JBBOhDIxEYQPAJLn8hKsKTeH-u2OGk:1u8nMo:huh2YTvSXnbGSwy5N-MBPHJGx5PzlWO-Oxf2yUTekQA",
+        "expire_date": "2025-05-10T21:47:22.616Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "krhlsnnbrgozvqg1pljichlk0z2q7u98",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-7CY2JT1nsHa9DgmgWIqTCnF3iJQC2jcz76USbeuYtlaWNIk6K6tOvxtTfpR5B3Kn-VZ1rvO6TKx3RR-06WuV8rwc7t_BSG381i4YhiHH0EMJUiQwdiYOGC27bCi4DOiBCAkBZcidRwAyfQk9e7Go3h_gcTeo:1u9U9N:KhCltwb0zydvIq6aBcAFIqCeBuE9sZA7YrIwHDiFfkI",
+        "expire_date": "2025-05-12T19:28:21.587Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "ltdl7oqpzcakll37s0468tpzae7wzhxw",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-7CY2JT1nsHa9DgmgWIqTCnF3iJQC2jcz76USbeuYtlaWNIk6K6tOvxtTfpR5B3Kn-VZ1rvO6TKx3RR-06WuV8rwc7t_BSG381i4YhiHH0EMJUiQwdiYOGC27bCi4DOiBCAkBZcidRwAyfQk9e7Go3h_gcTeo:1u8SIL:J6LvT-EDWq2-SohS2Npl_5_sDUhmr1AhPKnAKoECNj0",
+        "expire_date": "2025-05-09T23:17:21.125Z"
+    }
+},
+{
+    "model": "sessions.session",
     "pk": "tbra268rrwc4p2xo05ihyjvu2g686vnb",
     "fields": {
         "session_data": ".eJxVjEEOwiAQRe_C2pCBYgWX7nuGZoYZpGogKe3KeHfbpAvdvvf-f6sR1yWPa5N5nFhdlVGnX0YYn1J2wQ8s96pjLcs8kd4Tfdimh8ryuh3t30HGlre1x2QhIfQhSARI1kpvgCJEdwYIlsR0F7ZCGzJOgkDojIno2XkfmNTnC-IMN-Q:1u4OXl:28bBizdPhVY9nJpeLQXC4xoTlBvbRm1qRvQ068y7F9g",
@@ -1213,7 +1276,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$600000$DS25ufsBQf1a4PplI83ZHL$DlIk6C1p3yPeBjStenzr0Lv5jlRnGz8A2Y2gCQPzoow=",
-        "last_login": "2025-04-22T19:53:17.628Z",
+        "last_login": "2025-04-28T19:28:21.586Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -1346,6 +1409,7 @@
     "model": "rabble.subrabble",
     "pk": 1,
     "fields": {
+        "identifier": "cs-courses",
         "community": 1,
         "subrabble_name": "cs-courses",
         "description": "this is for cs-courses",
@@ -1359,6 +1423,7 @@
     "model": "rabble.subrabble",
     "pk": 2,
     "fields": {
+        "identifier": "python",
         "community": 1,
         "subrabble_name": "python",
         "description": "this is for python",
@@ -1372,6 +1437,7 @@
     "model": "rabble.subrabble",
     "pk": 3,
     "fields": {
+        "identifier": "web-dev",
         "community": 1,
         "subrabble_name": "web-dev",
         "description": "this is for web-dev",
@@ -1390,7 +1456,8 @@
         "title": "hi im alex",
         "body": "yep this is alex",
         "num_likes": 0,
-        "num_comments": 3
+        "num_comments": 3,
+        "likes": []
     }
 },
 {
@@ -1402,7 +1469,8 @@
         "title": "hi im sam",
         "body": "yep this is sam",
         "num_likes": 0,
-        "num_comments": 0
+        "num_comments": 0,
+        "likes": []
     }
 },
 {
@@ -1414,7 +1482,8 @@
         "title": "hi im chris",
         "body": "yep this is chris",
         "num_likes": 0,
-        "num_comments": 0
+        "num_comments": 0,
+        "likes": []
     }
 },
 {
@@ -1426,7 +1495,34 @@
         "title": "admin test post",
         "body": "this post is to test edit function",
         "num_likes": 0,
-        "num_comments": 0
+        "num_comments": 0,
+        "likes": []
+    }
+},
+{
+    "model": "rabble.post",
+    "pk": 8,
+    "fields": {
+        "user": 3,
+        "subrabble": 1,
+        "title": "What class should I take?",
+        "body": "I am debating if I should take Introduction to Software Development.",
+        "num_likes": 7,
+        "num_comments": 0,
+        "likes": []
+    }
+},
+{
+    "model": "rabble.post",
+    "pk": 9,
+    "fields": {
+        "user": 3,
+        "subrabble": 1,
+        "title": "What class should I take?",
+        "body": "I am debating if I should take Introduction to Software Development.",
+        "num_likes": 7,
+        "num_comments": 0,
+        "likes": []
     }
 },
 {
