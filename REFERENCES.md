@@ -25,3 +25,7 @@ AI was utilized for explanations of concepts as well as HTML.
 
 https://www.django-rest-framework.org/api-guide/relations/ 
 https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+
+Homework #5
+
+NA
