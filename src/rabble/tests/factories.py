@@ -1,6 +1,8 @@
 from factory import Sequence, Faker, SubFactory
 from factory.django import DjangoModelFactory
 from rabble.models import User, Community, Subrabble, Post, Comment
+import string
+import factory
 
 class UserFactory(DjangoModelFactory):
     class Meta:
@@ -38,7 +40,6 @@ class PostFactory(DjangoModelFactory):
     body = Faker('paragraph', nb_sentences=3)
     num_likes = 0
     num_comments = 0
-    likes = []
 
 class CommentFactory(DjangoModelFactory):
     class Meta:

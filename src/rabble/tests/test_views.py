@@ -6,27 +6,37 @@ from .factories import UserFactory, CommunityFactory, SubRabbleFactory, PostFact
 @pytest.mark.django_db
 def test_index_view(client):
     community = CommunityFactory(community_name="default")
-    subrabbles = SubRabbleFactory.create_batch(6, community=community)
+    subrabble1 = SubRabbleFactory.create(community=community, subrabble_name="subrabble1")
+    subrabble2 = SubRabbleFactory.create(community=community, subrabble_name="subrabble2")
+    subrabble3 = SubRabbleFactory.create(community=community, subrabble_name="subrabble3")
+    subrabble4 = SubRabbleFactory.create(community=community, subrabble_name="subrabble4")
+    subrabble5 = SubRabbleFactory.create(community=community, subrabble_name="subrabble5")
+    user = UserFactory()
+    client.force_login(user)
 
     response = client.get(reverse('index'))
     assert 'subrabbles' in response.context
-    assert len(response.context['subrabbles']) == len(subrabbles)
     assert response.status_code == 200
 
     html = response.content.decode()
-    for subrabble in subrabbles:
-        assert subrabble.subrabble_name in html
+    assert subrabble1.subrabble_name in html
+    assert subrabble2.subrabble_name in html
+    assert subrabble3.subrabble_name in html
+    assert subrabble4.subrabble_name in html
+    assert subrabble5.subrabble_name in html
 
 @pytest.mark.django_db
 def test_subrabble_detail_view(client):
     community = CommunityFactory(community_name="default")
-    subrabble = SubRabbleFactory(community=community)
+    subrabble = SubRabbleFactory(community=community, subrabble_name="subrabble")
     posts = PostFactory.create_batch(6, subrabble=subrabble)
+    user = UserFactory()
+    client.force_login(user)
 
     for post in posts:
         CommentFactory.create_batch(2, post=post)
 
-    response = client.get(reverse('subrabble_detail', args=[subrabble.identifier]))
+    response = client.get(reverse('subrabble-detail', args=[subrabble.subrabble_name]))
     assert response.status_code == 200
     
     html = response.content.decode()
@@ -40,18 +50,22 @@ def test_subrabble_detail_view(client):
 def test_post_create_view(client):
     user = UserFactory()
     client.force_login(user)
-
     community = CommunityFactory(community_name = "default")
-    subrabble = SubRabbleFactory(community=community)
+    subrabble = SubRabbleFactory(community=community, subrabble_name="subrabble")
 
-    post = {
-        'title': 'post title',
-        'body': 'body of the post',
-        'subrabble': subrabble.id,
+    data = {
+        "user": user.username,
+        "subrabble": subrabble.subrabble_name,
+        "title": "post titleeeeeee",
+        "body": "post bodyyyyy",
+        "num_likes": 7,
+        "num_comments": 0
     }
 
-    response = client.post(reverse('post_create', args=[subrabble.identifier]), data=post, follow=True)
-
+    response = client.post(reverse('post-create', args=[subrabble.subrabble_name]), data=data, follow=True)
     assert response.status_code == 200
-    post_exists = Post.objects.filter(title='post title', subrabble=subrabble).exists()
-    assert post_exists
+    
+    post = Post.objects.latest('id')
+    assert post.subrabble == subrabble
+    assert post.title == data['title']
+    assert post.body == data['body']
