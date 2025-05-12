@@ -87,3 +87,5 @@ def post_edit(request, subrabble_name, pk):
             'subrabble': subrabble,
             'is_editing': True,
         })
+
+    return redirect('post-detail', subrabble_name=subrabble_name, pk=post.pk)

@@ -26,6 +26,13 @@ AI was utilized for explanations of concepts as well as HTML.
 https://www.django-rest-framework.org/api-guide/relations/ 
 https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 
+
 Homework #5
 
 NA
+
+
+Homework #6
+
+https://www.googlecloudcommunity.com/gc/Databases/Unable-to-connect-to-Cloud-SQL-PostgreSQL-database-from-Django/m-p/905697 
+AI was used to try and figure out what the "OperationalError at /accounts/login/" was.
